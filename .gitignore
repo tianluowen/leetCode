@@ -29,6 +29,7 @@
 # Executables
 *.exe
 *exe
+exetest
 *.out
 *.app
 
