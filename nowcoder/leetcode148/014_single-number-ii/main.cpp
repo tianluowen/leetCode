@@ -7,14 +7,16 @@ using namespace std;
         
 class Solution {
 public:
-    int singleNumber(int A[], int n) {
-        int a = 0;
+        int singleNumber(int A[], int n) {
+        int seen_once = 0;
+        int seen_twice = 0;
         for (int i = 0; i < n; i++)
         {
-            a ^= A[i];
+            seen_once = ~seen_twice & (seen_once ^ A[i]);
+            seen_twice = ~seen_once & (seen_twice ^ A[i]);
         }
-
-        return a;
+        
+        return seen_once;
     }
 };
         
@@ -22,7 +24,7 @@ int main(void)
 {
     Solution s;
 
-    int A[] {2, 2, 1};
+    int A[] {2, 2, 2, 1};
 
     int result = s.singleNumber(A, 3);
 
