@@ -1,5 +1,5 @@
-// date: 2020-05-02
-// desc: 请你来实现一个 atoi 函数，使其能将字符串转换成整数
+// date: 2020-05-03
+// desc: 实现函数 atoi 。函数的功能为将字符串转化为整数
 
 #include <iostream>
 #include <string>
@@ -9,9 +9,9 @@ using namespace std;
 
 class Solution {
 public:
-    int myAtoi(string str) {
+    int atoi(const char *str) {
         int index = 0;
-        int length = str.length();
+        //int length = str.length();
         int flag = 1;
         int result = 0;
 
@@ -39,7 +39,7 @@ public:
         }
 
         // 转换
-        while (index < length)
+        while (str[index] != '\0')
         {
             // 添加正负说明
             if (result != 0 && flag != 0)
@@ -82,13 +82,12 @@ public:
     }
 };
 
-
 int main(void)
 {
     Solution s;
 
     cout << "input = 42" << endl;
-    cout << "result = " << s.myAtoi("42") << endl;
+    cout << "result = " << s.atoi("42") << endl;
 
     return 0;
 }
